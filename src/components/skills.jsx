@@ -1,5 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+
 
 const Skills = () => {
     const skills_data = [
@@ -20,7 +22,8 @@ const Skills = () => {
     const [skils, setSkills] = useState([]);
     const [activeFilter, setActiveFilter] = useState('all');
     return (
-        <div className="skill-container">
+        <motion.div
+            className="skill-container">
             <div className="heading">
                 <h2><span>S</span>kills</h2>
             </div>
@@ -41,8 +44,10 @@ const Skills = () => {
                     setActiveFilter('tool');
                 }} className={activeFilter === "tool" ? "filter-item filter-active" : "filter-item"}>tools</button>
             </div >
-            <div className="skill-items">
-                {
+
+            <AnimatePresence>
+                <div className="skill-items">
+                    {/* {
                     skills_data.map((skill, index) => {
                         return (
                             <div className={activeFilter === skill.category ? "skill-item active-skill-item" : activeFilter === "all" ? "skill-item active-skill-item" : "skill-item"} key={index}>
@@ -50,10 +55,38 @@ const Skills = () => {
                             </div>
                         )
                     })
-                }
+                } */
 
-            </div>
-        </div >
+                        skills_data.map((skill, index) => {
+
+
+                            if ((activeFilter === skill.category)) {
+                                return (
+
+                                    <motion.div
+                                        layout
+                                        animate={{ opacity: 1 }}
+                                        initial={{ opacity: 0 }}
+                                        exit={{ opacity: 0 }} className="skill-item" key={index}>
+                                        <div className="skill-name"> {skill.name}</div>
+                                    </motion.div>
+                                )
+                            }
+                            else if (activeFilter === "all") {
+                                return (
+                                    <motion.div className="skill-item" key={index}>
+                                        <div className="skill-name"> {skill.name}</div>
+                                    </motion.div>
+                                )
+                            }
+                        }
+                        )
+                    }
+
+
+                </div>
+            </AnimatePresence>
+        </motion.div >
     )
 }
 
