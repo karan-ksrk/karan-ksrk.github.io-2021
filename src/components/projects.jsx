@@ -6,9 +6,7 @@ const Projects = () => {
 
 
     const project_data = [
-        {
-            'img_url': 'https://random.imagecdn.app/500/150', 'category': 'web'
-        },
+        { 'img_url': 'https://random.imagecdn.app/500/150', 'category': 'web' },
         { 'img_url': 'https://random.imagecdn.app/500/110', 'category': 'web' },
         { 'img_url': 'https://random.imagecdn.app/500/120', 'category': 'mobile' },
         { 'img_url': 'https://random.imagecdn.app/500/130', 'category': 'mobile' },
