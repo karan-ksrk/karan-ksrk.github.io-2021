@@ -166,7 +166,7 @@ h1>span {
   border: none;
   padding: 0.3rem 1.2rem;
   border-radius: 20px;
-  color: #7B61FF;
+  color: black;
   cursor: pointer;
   box-shadow: -2px -2px 6px rgba(255, 255, 255, 0.25), 2px 2px 4px rgba(0, 0, 0, 0.25);
 
@@ -177,10 +177,13 @@ h1>span {
   color: white;
 }
 
-.skill-container button.active {
+.skill-container {}
+
+button.active {
   background-color: #7B61FF;
   color: white;
   cursor: pointer;
+  min-height: 200px;
 }
 
 
@@ -190,6 +193,7 @@ h1>span {
   display: flex;
   flex-wrap: wrap;
   margin-top: 10px;
+
 
 }
 
@@ -275,7 +279,7 @@ textarea {
   border-radius: 20px;
   background-color: #9AA0A7;
   color: black;
-  padding: auto 10px;
+  padding: 10px 10px;
   box-shadow: -2px -2px 6px rgba(255, 255, 255, 0.25), 2px 2px 4px rgba(0, 0, 0, 0.25);
 }
 
