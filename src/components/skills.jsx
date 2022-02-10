@@ -19,15 +19,20 @@ const Skills = () => {
 
 
     ]
-    const [skils, setSkills] = useState([]);
+    const [skills, setSkills] = useState([]);
     const [activeFilter, setActiveFilter] = useState('all');
+
+    useEffect(() => {
+        setSkills(skills_data);
+    }, []);
+
     return (
         <motion.div
             className="skill-container">
             <div className="heading">
                 <h2><span>S</span>kills</h2>
             </div>
-            <div className="skill-filter-container">
+            <div className="filter-container">
                 <button onClick={() => {
                     setActiveFilter('all');
                 }} className={activeFilter === "all" ? "filter-item filter-active" : "filter-item"}>All</button>
@@ -47,22 +52,10 @@ const Skills = () => {
 
             <AnimatePresence>
                 <div className="skill-items">
-                    {/* {
-                    skills_data.map((skill, index) => {
-                        return (
-                            <div className={activeFilter === skill.category ? "skill-item active-skill-item" : activeFilter === "all" ? "skill-item active-skill-item" : "skill-item"} key={index}>
-                                <div className="skill-name">{skill.name}</div>
-                            </div>
-                        )
-                    })
-                } */
-
-                        skills_data.map((skill, index) => {
-
-
-                            if ((activeFilter === skill.category)) {
+                    {
+                        skills.map((skill, index) => {
+                            if (activeFilter === skill.category || activeFilter === 'all') {
                                 return (
-
                                     <motion.div
                                         layout
                                         animate={{ opacity: 1 }}
@@ -72,13 +65,7 @@ const Skills = () => {
                                     </motion.div>
                                 )
                             }
-                            else if (activeFilter === "all") {
-                                return (
-                                    <motion.div className="skill-item" key={index}>
-                                        <div className="skill-name"> {skill.name}</div>
-                                    </motion.div>
-                                )
-                            }
+
                         }
                         )
                     }
